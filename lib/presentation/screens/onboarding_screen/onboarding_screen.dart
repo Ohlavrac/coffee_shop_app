@@ -1,6 +1,10 @@
+import 'package:coffee_shop_app/core/descriptions_onboard.dart';
+import 'package:coffee_shop_app/core/images_onboard.dart';
+import 'package:coffee_shop_app/core/titles_onboard.dart';
 import 'package:coffee_shop_app/presentation/shared/colors/app_colors.dart';
 import 'package:coffee_shop_app/presentation/shared/texts/app_texts.dart';
 import 'package:coffee_shop_app/presentation/widgets/onboard_indicator_widget.dart';
+import 'package:coffee_shop_app/utils/onboard_incrementer.dart';
 import 'package:flutter/material.dart';
 
 class OnBoardingScreen extends StatefulWidget {
@@ -12,11 +16,22 @@ class OnBoardingScreen extends StatefulWidget {
 
 class _OnBoardingScreenState extends State<OnBoardingScreen> {
   int position = 0;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.transparent,
+        actions: [
+          TextButton(
+              onPressed: () {},
+              child: const Text(
+                "Skip",
+                style: TextStyle(
+                    color: AppColors.headingTextColor,
+                    fontWeight: FontWeight.w500),
+              ))
+        ],
       ),
       body: Center(
         child: Padding(
@@ -26,7 +41,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
               crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Center(child: Image.asset("./assets/images/coffees_img.png")),
+                Center(child: Image.asset(imagesOnboard[position])),
                 const SizedBox(
                   height: 60,
                 ),
@@ -34,14 +49,14 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      "Choose and customize your Drinks",
+                      titlesOnboard[position],
                       style: AppTexts.heading20Bold,
                     ),
                     const SizedBox(
                       height: 10,
                     ),
                     Text(
-                        "Customize your own drink exactly how you like it by adding any topping you like!!!",
+                        descriptionsOnboard[position],
                         style: AppTexts.title16Medium),
                   ],
                 ),
@@ -56,7 +71,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                       ElevatedButton(
                           onPressed: () {
                             setState(() {
-                              position++;
+                              position = onboardIncrementer(position);
                             });
                           },
                           child: Text("NEXT ->"))

@@ -6,6 +6,7 @@ class AppColors {
   static const infoColor = Color(0xFF03539E);
   static const dangerColor = Color(0xFFE33131);
   static const warningColor = Color(0xFFEB9525);
+  static const acentColor = Color(0xFF032172);
 
   static const lightColor = Color(0xFFFEFEFE);
   static const mediumColor = Color(0xFFF0F0F0);

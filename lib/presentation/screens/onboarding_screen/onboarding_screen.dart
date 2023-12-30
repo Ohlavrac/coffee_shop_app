@@ -20,11 +20,14 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: AppColors.lightColor,
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         actions: [
           TextButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.pushNamed(context, "/registerscreen");
+              },
               child: const Text(
                 "Skip",
                 style: TextStyle(
@@ -55,8 +58,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                     const SizedBox(
                       height: 10,
                     ),
-                    Text(
-                        descriptionsOnboard[position],
+                    Text(descriptionsOnboard[position],
                         style: AppTexts.title16Medium),
                   ],
                 ),
@@ -71,10 +73,30 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                       ElevatedButton(
                           onPressed: () {
                             setState(() {
+                              if (position == 2) {
+                                Navigator.pushNamed(context, "/registerscreen");
+                              }
                               position = onboardIncrementer(position);
                             });
                           },
-                          child: Text("NEXT ->"))
+                          style: ElevatedButton.styleFrom(
+                            fixedSize: const Size(150, 50),
+                            backgroundColor: AppColors.brandColor,
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(16)),
+                          ),
+                          child: const Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceAround,
+                            children: [
+                              Text("NEXT",
+                                  style: TextStyle(
+                                      color: Colors.white, fontSize: 14)),
+                              Icon(
+                                Icons.east,
+                                color: Colors.white,
+                              )
+                            ],
+                          ))
                     ],
                   ),
                 ),

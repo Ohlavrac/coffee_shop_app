@@ -29,7 +29,9 @@ class LoginScreen extends StatelessWidget {
                       ),
                     ),
                     CustomElevatedButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.pushNamed(context, "/pinscreen");
+                      },
                       label: "Login",
                     ),
                   ],

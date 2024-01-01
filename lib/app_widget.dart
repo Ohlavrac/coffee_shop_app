@@ -1,4 +1,5 @@
 import 'package:coffee_shop_app/presentation/screens/login_screen/login_screen.dart';
+import 'package:coffee_shop_app/presentation/screens/login_screen/pin_screen.dart';
 import 'package:coffee_shop_app/presentation/screens/onboarding_screen/onboarding_screen.dart';
 import 'package:coffee_shop_app/presentation/screens/register_screen/register_screen.dart';
 import 'package:coffee_shop_app/presentation/screens/splash_screen/splash_screen.dart';
@@ -16,7 +17,8 @@ class MyApp extends StatelessWidget {
         "/splashscreen": (context) => const SplashScreen(),
         "/onboardscreen": (context) => const OnBoardingScreen(),
         "/registerscreen": (context) => const RegisterScreen(),
-        "/loginscreen": (context) => const LoginScreen()
+        "/loginscreen": (context) => const LoginScreen(),
+        "/pinscreen": (context) => const PinScreen(),
       },
     );
   }

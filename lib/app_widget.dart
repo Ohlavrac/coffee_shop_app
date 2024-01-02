@@ -1,3 +1,4 @@
+import 'package:coffee_shop_app/presentation/screens/home_screen/home_base_screen.dart';
 import 'package:coffee_shop_app/presentation/screens/login_screen/login_screen.dart';
 import 'package:coffee_shop_app/presentation/screens/login_screen/pin_screen.dart';
 import 'package:coffee_shop_app/presentation/screens/onboarding_screen/onboarding_screen.dart';
@@ -12,13 +13,14 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      initialRoute: "/loginscreen",
+      initialRoute: "/homebasescreen",
       routes: {
         "/splashscreen": (context) => const SplashScreen(),
         "/onboardscreen": (context) => const OnBoardingScreen(),
         "/registerscreen": (context) => const RegisterScreen(),
         "/loginscreen": (context) => const LoginScreen(),
         "/pinscreen": (context) => const PinScreen(),
+        "/homebasescreen": (context) => const HomaBaseScreen()
       },
     );
   }
